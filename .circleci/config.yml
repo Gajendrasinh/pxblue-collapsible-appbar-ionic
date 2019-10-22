@@ -1,0 +1,28 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/collapsible-appbar
+    docker:
+      # FOR IONIC node:10.9-browsers
+      # FOR ANGULAR, REACT, REACT-NATIVE node:12.6-browsers
+      - image: circleci/node:10.9-browsers
+    steps:
+      - checkout
+      - restore_cache:
+          key: v1-dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install Dependencies
+          command: yarn install
+      - save_cache:
+          key: v1-dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ~/.cache
+            - ./node_modules
+      - run:
+          name: Build
+          command: yarn build # yarn build for all but React Native
+      - run:
+          name: Test
+          # FOR ANGULAR AND IONIC: yarn test --watch=false --no-progress
+          # FOR REACT AND REACT-NATIVE: yarn test
+          command: yarn test --watch=false --no-progress

@@ -1,0 +1,54 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@import '~@pxblue/colors/palette.scss';
+
+html, body { 
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+ion-header, ion-toolbar {
+    color: map-get($pxb-white, 50);
+    --color : map-get($pxb-white, 50);
+    --background: map-get($pxb-blue, 500); 
+    background: map-get($pxb-blue, 500);
+    font-family: Open Sans, sans-serif;    
+}
+
+.abe{
+  background: 
+    linear-gradient(
+      map-get($pxb-blue, 500), 
+      map-get($pxb-blue, 400)
+    ),
+    url(https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTIwNjA4NjMzODg2NTc0MDky/abraham-lincoln-9382540-2-402.jpg) !important;
+  background-repeat: no-repeat !important;
+  background-position: right !important;
+  background-blend-mode: soft-light;
+}

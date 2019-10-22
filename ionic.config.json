@@ -1,0 +1,7 @@
+{
+  "name": "pxblue-collapsible-appbar-ionic",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
