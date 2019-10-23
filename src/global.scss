@@ -41,6 +41,9 @@ ion-header, ion-toolbar {
     font-family: Open Sans, sans-serif;    
 }
 
+ion-button{
+  color: map-get($pxb-white, 50);
+}
 .abe{
   background: 
     linear-gradient(
@@ -51,4 +54,5 @@ ion-header, ion-toolbar {
   background-repeat: no-repeat !important;
   background-position: right !important;
   background-blend-mode: soft-light;
+  background-size: 50% !important;
 }

@@ -1,42 +1,44 @@
 <ion-app>    
-  <ion-content >
-<div class="eaton mat-typography"  style="overflow-x:hidden;" fxFlexFill cdkScrollable>
-  <mat-toolbar color="primary" [ngClass]="{'mat-elevation-z2': scrollTop>200}" style="position:fixed; top: 0;z-index:10;" *ngIf="shrinkToolbar">
-      <mat-toolbar-row>
-        <button mat-icon-button>
-          <mat-icon>menu</mat-icon>
-        </button>
-        <div fxFlex="1 1 0px" fxLayout="column" fxLayoutAlign="start" class="ion-margin-start">
-          <div class="mat-title" style="margin-bottom:2px">President</div>
-          <div class="mat-subheading-2" style="line-height:.6rem;">Leader of the Free World</div>
-        </div>
-        <button mat-icon-button  >
-          <mat-icon>more_vert</mat-icon>
-        </button>
-      </mat-toolbar-row>
-    </mat-toolbar>
-    <mat-toolbar color="primary" class="abe" >
+    <ion-header>
       
-      <mat-toolbar-row style="justify-content: space-between;">
-        <button mat-icon-button >
-          <mat-icon>menu</mat-icon>
-        </button>
-        <button mat-icon-button >
-          <mat-icon>more_vert</mat-icon>
-        </button>
-        
-      </mat-toolbar-row >
-      <mat-toolbar-row fxLayout="column" fxLayoutAlign="start" style="height:auto; margin-left:56px; " [ngStyle]="{opacity: 1-scrollTop/200}">
-        <h4 class="mat-headline">President</h4>
-        <div class="mat-title">Commander in Chief</div>
-        <div class="mat-subheading-2">Leader of the Free World</div>
-      </mat-toolbar-row>
-      <mat-toolbar-row></mat-toolbar-row>
-    </mat-toolbar>
+      <ion-toolbar flexLayout="row" *ngIf="shrinkToolbar" mode="md">
+        <div fxLayout="row" fxLayoutAlign="space-between">
+   
+          <ion-button fill="clear" >
+                <mat-icon id='delete-icon' >menu</mat-icon>
+          </ion-button>
 
- 
+          <ion-title >
+              <div class="mat-subheading-1" style="margin-bottom:2px">President</div>
+              <div class="mat-caption" style="line-height:.6rem;">Leader of the Free World</div>
+          </ion-title>
+     
+          <ion-button fill="clear">
+              <mat-icon id='add-icon'>more_vert</mat-icon>
+          </ion-button>
+        </div>
+      </ion-toolbar>
 
+      <ion-toolbar flexLayout="column"  fxLayoutAlign="start start"*ngIf="!shrinkToolbar" style="--min-height : 130px" class="abe">
+          <div fxLayout="row" fxLayoutAlign="space-between">
+            <ion-button size="small" fill="clear" slot="start">
+              <mat-icon id='delete-icon' >menu</mat-icon>
+            </ion-button>
+            <ion-button size="small"  fill="clear" slot="end">
+                <mat-icon id='add-icon'>more_vert</mat-icon>
+            </ion-button>
+          </div>
+          <div fxLayout="column" fxLayoutAlign="space-between" style="padding-left: 20px;"> 
+              <h4 class="mat-title">President</h4>
+              <div class="mat-body">Commander in Chief</div>
+              <div class="mat-body">Leader of the Free World</div>
+          </div>
+     </ion-toolbar>
 
+  </ion-header>
+
+  <ion-content>
+    <div class="eaton mat-typography"  style="overflow-x:hidden;" fxFlexFill cdkScrollable> 
       <mat-list>
           <mat-list-item *ngFor="let item of list;">
           <mat-icon mat-list-avatar>person</mat-icon>
@@ -45,10 +47,6 @@
           <div mat-line [ngStyle]="{color: Colors.gray[800]}">{{item.took_office}}</div>
           </mat-list-item>
       </mat-list>
-
     </div>
-
-  
   </ion-content>
-
 </ion-app>
