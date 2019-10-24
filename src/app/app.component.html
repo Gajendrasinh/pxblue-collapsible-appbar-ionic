@@ -1,44 +1,46 @@
 <ion-app>    
     <ion-header>
-      
-      <ion-toolbar flexLayout="row" *ngIf="shrinkToolbar" mode="md">
+      <ion-toolbar flexLayout="row"  mode="md" *ngIf="shrinkToolbar">
         <div fxLayout="row" fxLayoutAlign="space-between">
    
-          <ion-button fill="clear" >
+          <ion-button size="small" fill="clear" slot="start">
                 <mat-icon id='delete-icon' >menu</mat-icon>
           </ion-button>
 
-          <ion-title >
+          <ion-title>
               <div class="mat-subheading-1" style="margin-bottom:2px">President</div>
               <div class="mat-caption" style="line-height:.6rem;">Leader of the Free World</div>
           </ion-title>
      
-          <ion-button fill="clear">
+          <ion-button size="small" fill="clear" slot="end">
               <mat-icon id='add-icon'>more_vert</mat-icon>
           </ion-button>
         </div>
       </ion-toolbar>
 
-      <ion-toolbar flexLayout="column"  fxLayoutAlign="start start"*ngIf="!shrinkToolbar" style="--min-height : 130px" class="abe">
+
+      <expandable-header [scrollArea]="mycontent" headerHeight="125">
           <div fxLayout="row" fxLayoutAlign="space-between">
-            <ion-button size="small" fill="clear" slot="start">
-              <mat-icon id='delete-icon' >menu</mat-icon>
-            </ion-button>
-            <ion-button size="small"  fill="clear" slot="end">
-                <mat-icon id='add-icon'>more_vert</mat-icon>
-            </ion-button>
+   
+              <ion-button size="small" fill="clear" slot="start" *ngIf="!shrinkToolbar">
+                    <mat-icon id='delete-icon' >menu</mat-icon>
+              </ion-button>
+         
+              <ion-button size="small" fill="clear" slot="end" *ngIf="!shrinkToolbar">
+                  <mat-icon id='add-icon'>more_vert</mat-icon>
+              </ion-button>
+            </div>
+    
+            <div fxLayout="column" fxLayoutAlign="space-between" style="padding-left: 5px;"> 
+              <h4 class="mat-title" style="font-size: 20px;">President</h4>
+              <div class="mat-body" style="font-size: 14px;">Commander in Chief</div>
+              <div class="mat-body" style="font-size: 12px; padding: 5px 0;">Leader of the Free World</div>
           </div>
-          <div fxLayout="column" fxLayoutAlign="space-between" style="padding-left: 20px;"> 
-              <h4 class="mat-title">President</h4>
-              <div class="mat-body">Commander in Chief</div>
-              <div class="mat-body">Leader of the Free World</div>
-          </div>
-     </ion-toolbar>
+      </expandable-header>
 
   </ion-header>
 
-  <ion-content>
-    <div class="eaton mat-typography"  style="overflow-x:hidden;" fxFlexFill cdkScrollable> 
+  <ion-content  #mycontent  [scrollEvents]="true" (ionScrollStart)="shrinkToolbar = true">
       <mat-list>
           <mat-list-item *ngFor="let item of list;">
           <mat-icon mat-list-avatar>person</mat-icon>
@@ -47,6 +49,5 @@
           <div mat-line [ngStyle]="{color: Colors.gray[800]}">{{item.took_office}}</div>
           </mat-list-item>
       </mat-list>
-    </div>
   </ion-content>
 </ion-app>

@@ -3,8 +3,6 @@ import { Component, NgZone} from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { CdkScrollable, ScrollDispatcher } from '@angular/cdk/scrolling';
-import { map } from 'rxjs/operators';
 import { presidents } from './shared/presidents';
 import * as Colors from '@pxblue/colors';
 
@@ -25,15 +23,9 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
-    private scrollDispatcher: ScrollDispatcher,
-    private ngZone: NgZone
+    private statusBar: StatusBar
   ) {
     this.initializeApp();
-
-    this.scrollDispatcher.scrolled()
-      .pipe(map((event: CdkScrollable) => this.getScrollPosition(event)))
-      .subscribe(scrollTop => this.ngZone.run(() => this.setScroll(scrollTop)));
   }
 
   initializeApp() {
@@ -44,15 +36,9 @@ export class AppComponent {
     });
   }
 
-  getScrollPosition(event) {
-    if (event) {
-      return event.getElementRef().nativeElement.scrollTop;
-    } else {
-      return window.pageYOffset;
-    }
-  }
-  setScroll(scrollTop){
-    this.shrinkToolbar = scrollTop > this.SHRINK_TOP_SCROLL_POSITION ? true : false;
-    this.scrollTop = scrollTop;
+  
+
+  logScrolling(scrollTop:any){
+    this.shrinkToolbar = scrollTop.detail > this.SHRINK_TOP_SCROLL_POSITION ? true : false;
   }
 }

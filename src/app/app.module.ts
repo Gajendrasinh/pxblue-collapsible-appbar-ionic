@@ -12,11 +12,12 @@ import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
+import { ExpandableHeader } from './expandable-header'; 
 
 import { AppComponent } from './app.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ExpandableHeader],
   entryComponents: [],
   imports: [
     BrowserModule, 
@@ -27,7 +28,7 @@ import { AppComponent } from './app.component';
     FlexLayoutModule,
     MatListModule,
     ScrollDispatchModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [
     StatusBar,
