@@ -47,7 +47,7 @@ ion-button{
   --padding-end : 0px;
 }
 
-expandable-header {
+.bg-image{
 
   display: block;
   background-image: url(https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTIwNjA4NjMzODg2NTc0MDky/abraham-lincoln-9382540-2-402.jpg) ;
@@ -57,5 +57,5 @@ expandable-header {
   background-size: 50% 100%;
   --min-height: 100px;
   overflow: hidden;
-
+  height: 140px;
 }

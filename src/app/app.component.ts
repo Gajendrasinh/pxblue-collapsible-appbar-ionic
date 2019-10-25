@@ -39,6 +39,6 @@ export class AppComponent {
   
 
   logScrolling(scrollTop:any){
-    this.shrinkToolbar = scrollTop.detail > this.SHRINK_TOP_SCROLL_POSITION ? true : false;
+    this.shrinkToolbar = scrollTop.detail.scrollTop > this.SHRINK_TOP_SCROLL_POSITION ? true : false;
   }
 }
